@@ -4,8 +4,8 @@ clean:
 	rm -rf *.o *.bin *.dump
 
 object:
-	podman run -it -u $(id -u):$(id -g) --userns=keep-id --rm -v /home/deck:/home/deck risc-cmp riscv64-unknown-elf-gcc -Wl,-Ttext=0x0 -nostdlib -o ${PWD}/add.o ${PWD}/add.s
-	podman run -it -u $(id -u):$(id -g) --userns=keep-id --rm -v /home/deck:/home/deck risc-cmp riscv64-unknown-elf-gcc -Wl,-Ttext=0x0 -nostdlib -o  ${PWD}/addi.o ${PWD}/addi.s
+	podman run -it -u $(id -u):$(id -g) --userns=keep-id --rm -v /home/deck:/home/deck risc-cmp riscv64-unknown-elf-gcc -Wl,-Ttext=0x0 -nostdlib -march=rv64i -mabi=lp64 -o ${PWD}/add.o ${PWD}/add.s
+	podman run -it -u $(id -u):$(id -g) --userns=keep-id --rm -v /home/deck:/home/deck risc-cmp riscv64-unknown-elf-gcc -Wl,-Ttext=0x0 -nostdlib -march=rv64i -mabi=lp64 -o ${PWD}/addi.o ${PWD}/addi.s
 
 dump:
 	podman run -it -u $(id -u):$(id -g) --userns=keep-id --rm -v /home/deck:/home/deck risc-cmp riscv64-unknown-elf-objdump -d $(PWD)/add.o > $(PWD)/add.dump
