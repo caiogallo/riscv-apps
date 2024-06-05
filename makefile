@@ -15,16 +15,19 @@ object:
 	@$(GCC) $(GCC_ARGS) ${PWD}/add.o ${PWD}/add.s
 	@$(GCC) $(GCC_ARGS) ${PWD}/addi.o ${PWD}/addi.s
 	@$(GCC) $(GCC_ARGS) ${PWD}/addislti.o ${PWD}/addislti.s
+	@$(GCC) $(GCC_ARGS) ${PWD}/andorxor.o ${PWD}/andorxor.s
 
 dump:
 	@$(DUMP) $(DUMP_ARGS) $(PWD)/add.o > $(PWD)/add.dump
 	@$(DUMP) $(DUMP_ARGS) $(PWD)/addi.o > $(PWD)/addi.dump
 	@$(DUMP) $(DUMP_ARGS) $(PWD)/addislti.o > $(PWD)/addislti.dump
-
+	@$(DUMP) $(DUMP_ARGS) $(PWD)/andorxor.o > $(PWD)/andorxor.dump
 
 bin:
 	@$(OBJ) $(OBJ_ARGS) ${PWD}/add.o ${PWD}/add.bin
 	@$(OBJ) $(OBJ_ARGS) ${PWD}/addi.o ${PWD}/addi.bin
 	@$(OBJ) $(OBJ_ARGS) ${PWD}/addislti.o ${PWD}/addislti.bin
+	@$(OBJ) $(OBJ_ARGS) ${PWD}/andorxor.o ${PWD}/andorxor.bin
+
 
 all: clean object dump bin

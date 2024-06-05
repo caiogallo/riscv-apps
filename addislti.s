@@ -1,4 +1,4 @@
-.global start
+.global _start
 
 _start:    
     addi x30, x0, 10	# add 10 to x30 
