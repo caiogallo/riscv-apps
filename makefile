@@ -1,4 +1,4 @@
-PWD=/home/deck/Projects/riscv-asm
+PWD=$(shell pwd)
 
 clean:
 	@rm -rf *.o *.bin *.dump
